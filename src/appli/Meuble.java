@@ -25,7 +25,6 @@ public class Meuble {
 		
 	}
 
-
 	public double getPrix() {
 		return prix;
 	}
