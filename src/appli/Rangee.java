@@ -12,28 +12,25 @@ public class Rangee {
 	private int longueur;
 	private final int LARGEUR = 1, HAUTEUR = 1;
 	
-	private Map<Lot,Integer> lotsRangee;
+	private List<Lot> lotsRangee;
 
 	public void setLongueur(int longueur) {
 		this.longueur = longueur;
-		lotsRangee = new HashMap<>();
+		lotsRangee = new LinkedList<>();
 	}
-	
 	
 	public void ajouterLot(Lot lot) {
 		if(!estRempli())
-			lotsRangee.put(lot, lot.getVolume());
+			lotsRangee.add(lot);
 	}
 	
 	public boolean estRempli() {
 		int volumes = 0;
 		if(!lotsRangee.isEmpty())
-			for(Entry e : lotsRangee.entrySet())
-				volumes += (int) e.getValue();
+			for(Lot l : lotsRangee)
+				volumes += l.getVolume();
 		return volumes < longueur;
 	}
 	
 	
-	
-
 }
