@@ -21,7 +21,7 @@ class rangeeTest {
 		//L'Entrepot ajoute les rangees
 		entrepot.ajouterRangee(rangee1);
 		entrepot.ajouterRangee(rangee2);
-		entrepot.ajouterUnLot(planchesDeBoie);
+		//entrepot.ajouterUnLot(planchesDeBoie);
 		
 	}
 	

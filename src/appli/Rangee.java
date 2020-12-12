@@ -1,6 +1,7 @@
 package appli;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -36,22 +37,28 @@ public class Rangee {
 	}
 	
 	public boolean estRempli() {
-		int volumes = 0;
-		if(espacesRangee.length != 0)
-			for(Lot l : espacesRangee)
-				volumes += l.getVolume();
-		return volumes < longueur;
+		//a faire
+		return false;
 	}
 	
-	public boolean placeDisponible(Lot l) {
+	public List<Integer> placeDisponible(Lot l) {
 		if(estRempli())
-			return false;
-		int volumes = 0;
+			return null;
+		int place = 0;
+		List<Integer> indices = new ArrayList<>();
 		
-		for(Lot lot : espacesRangee)
-			volumes += l.getVolume();
-		
-		return (longueur - volumes) >= l.getVolume() ;
+		for(int i = 0; i < espacesRangee.length; ++i) {
+			if(espacesRangee[i] == null) {
+				place++;
+				if(place >= l.getVolume()) {
+					indices.add(i - (l.getVolume() - 1));
+				}
+			}
+			else
+				place = 0;
+		}
+	
+		return indices ;
 	}
 	
 	@Override

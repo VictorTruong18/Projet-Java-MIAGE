@@ -26,14 +26,10 @@ public class Entrepot {
 		this.rangees.add(rangee);
 	}
 	
-	public void ajouterUnLot(Lot l) {
-		for(Rangee r : this.rangees) {
-			if(r.placeDisponible(l)) {
-				r.ajouterLot(l);
-			}
-		}
-	}
-	
+	/*
+	 * public void ajouterUnLot(Lot l) { for(Rangee r : this.rangees) {
+	 * if(r.placeDisponible(l)) { r.ajouterLot(l); } } }
+	 */
 	
 	public void recruterPersonnel(String typePers) {
 		if(recruter) {

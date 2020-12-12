@@ -12,12 +12,15 @@ public class main {
 		Rangee rangee1 = new Rangee(5);
 		Rangee rangee2 = new Rangee(5);
 //		//Creation d'un lot de volume 6
-		Lot planchesDeBoie = new Lot(1,"PlanchesDeBoie",10,145.00,6);
+		Lot planchesDeBoie = new Lot(1,"PlanchesDeBoie",10,145.00,4);
 //		//L'Entrepot ajoute les rangees
 		entrepot.ajouterRangee(rangee1);
 		entrepot.ajouterRangee(rangee2);
 		
-		System.out.println(entrepot);
+		//System.out.println(entrepot);
+		
+		System.out.println(rangee1.placeDisponible(planchesDeBoie));
+		
 //		entrepot.ajouterUnLot(planchesDeBoie);		
 		
 	}
