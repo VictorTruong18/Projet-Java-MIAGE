@@ -1,6 +1,8 @@
 package appli;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -13,15 +15,17 @@ public class Rangee {
 	private final int LARGEUR = 1, HAUTEUR = 1;
 	
 	private List<Lot> lotsRangee;
-
-	public void setLongueur(int longueur) {
+	
+	public Rangee(int longueur) {
 		this.longueur = longueur;
-		lotsRangee = new LinkedList<>();
+		lotsRangee = new ArrayList<Lot>(longueur);
+		System.out.println(lotsRangee);
 	}
+
+
 	
 	public void ajouterLot(Lot lot) {
-		if(!estRempli())
-			lotsRangee.add(lot);
+		lotsRangee.add(lot);
 	}
 	
 	public boolean estRempli() {
@@ -31,6 +35,24 @@ public class Rangee {
 				volumes += l.getVolume();
 		return volumes < longueur;
 	}
+	
+	public boolean placeDisponible(Lot l) {
+		Iterator it = this.lotsRangee.iterator();
+		int counter = 0;
+		while(it.hasNext()) {
+			if(it.next() == null) {
+				counter++;
+				if(counter == l.getVolume()) {
+					return true;
+				}
+			} else {
+				counter=0;
+			}
+		}
+		return false;
+	}
+	
+
 	
 	
 }
