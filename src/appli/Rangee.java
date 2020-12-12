@@ -20,10 +20,10 @@ public class Rangee {
 		this.longueur = longueur;
 		lotsRangee = new Lot[longueur];
 		System.out.println(lotsRangee);
+		
 	}
 
 
-	
 	public void ajouterLot(Lot lot) {
 		int espace = 0;
 		for(int i = 0; i < lotsRangee.length; ++i) {
