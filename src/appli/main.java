@@ -16,6 +16,8 @@ public class main {
 //		//L'Entrepot ajoute les rangees
 		entrepot.ajouterRangee(rangee1);
 		entrepot.ajouterRangee(rangee2);
+		
+		System.out.println(entrepot);
 //		entrepot.ajouterUnLot(planchesDeBoie);		
 		
 	}

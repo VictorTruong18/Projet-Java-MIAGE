@@ -7,6 +7,10 @@ public class Lot {
 	private double poids, prix;
 	
 	
+	public int getIdLot() {
+		return idLot;
+	}
+
 	public Lot(int idLot, String nom, double poids, double prix, int volume) {
 		this.idLot = idLot;
 		this.volume = volume;

@@ -47,5 +47,13 @@ public class Entrepot {
 		}
 	}
 	
+	@Override
+	public String toString() {
+		String s = "";
+		for(Rangee r : rangees)
+			s += r.toString() + "\n";
+		return s;
+	}
+	
 
 }
