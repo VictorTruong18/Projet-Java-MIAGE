@@ -16,16 +16,7 @@ public class main {
 //		//L'Entrepot ajoute les rangees
 //		entrepot.ajouterRangee(rangee1);
 //		entrepot.ajouterRangee(rangee2);
-//		entrepot.ajouterUnLot(planchesDeBoie);
-		
-		List<Integer> list = new ArrayList<Integer>(20);
-		list.add(1);
-		list.add(2);
-		list.add(3);
-		list.add(4);
-		list.add(5);
-		System.out.println(list);
-		
+//		entrepot.ajouterUnLot(planchesDeBoie);		
 		
 	}
 

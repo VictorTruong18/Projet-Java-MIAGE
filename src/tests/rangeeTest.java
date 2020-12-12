@@ -10,6 +10,7 @@ class rangeeTest {
 
 	@Test
 	void test1() {
+		
 		//Initialisation de l'Entrepot
 		Entrepot entrepot = new Entrepot();
 		//Creation de deux rangees de volume 5
@@ -21,7 +22,6 @@ class rangeeTest {
 		entrepot.ajouterRangee(rangee1);
 		entrepot.ajouterRangee(rangee2);
 		entrepot.ajouterUnLot(planchesDeBoie);
-		
 		
 	}
 	
