@@ -24,15 +24,17 @@ public class Rangee {
 
 
 	public void ajouterLot(Lot lot) {
-		int espace = 0;
+		List<Integer> places = placeDisponible(lot);
+		int borneSuperieure = lot.getVolume() + places.get(0) - 1;
+		for(int i = places.get(0); i < borneSuperieure; ++i)
+			espacesRangee[i] = lot;
+		
+	}
+	
+	public void retirerLot(Lot lot) {
 		for(int i = 0; i < espacesRangee.length; ++i) {
-			if(espacesRangee[i] == null)
-				++espace;
-			if(espace >= lot.getVolume())
-				for(int j = 0; j < i; ++j) {
-					espacesRangee[j] = lot; 
-					return;
-				}
+			if(espacesRangee != null && espacesRangee[i].getIdLot() == lot.getIdLot())
+				espacesRangee[i] = null;
 		}
 	}
 	
