@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import appli.*;
+import personnel.ChefBrico;
 import personnel.ChefStock;
 import personnel.Ouvrier;
 import personnel.Specialite;
@@ -33,6 +34,33 @@ class personnelTest {
 		assertEquals(chefStock1.getPrenom(),"George" );
 		assertEquals(ouvrier1.getNom(),"Pitt" );
 		assertEquals(ouvrier1.getPrenom(),"Brad" );
+		
+	}
+	
+	@Test
+	void test2() {
+		//la creation de deux chefs d'equipes
+		ChefStock chefStock1 = new ChefStock("Fincher", "David");
+		ChefBrico chefBrico1 = new ChefBrico("Tarantino", "Quentin");
+		
+		//le chef de stock recrute trois ouvriers 
+		chefStock1.recruter("Afllec", "Ben", Specialite.SALLE_A_MANGER);
+		chefStock1.recruter("Norton", "Edward", Specialite.WC);
+		chefStock1.recruter("Garfield", "Andrew", Specialite.CHAMBRE);
+		
+		//le chef de brico recrute deux ouvriers
+		chefBrico1.recruter("Dicaprio", "Leonardo", Specialite.SALLE_DE_BAIN);
+		chefBrico1.recruter("Waltz", "Christopher", Specialite.SALON);
+		
+		//On verifie que le nombre d'ouvriers pour chaque chef corespond bien
+		assertEquals(chefStock1.getNbOuvriers(),3);
+		assertEquals(chefBrico1.getNbOuvriers(),2);
+		
+		chefStock1.renvoyer(4);
+		
+		//On verifie que lorsque l'on renvoie un ouvrier ceci est pris en compte
+		assertEquals(chefStock1.getNbOuvriers(),2);
+		
 		
 	}
 	
