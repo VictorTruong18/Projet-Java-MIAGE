@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import appli.*;
 import personnel.ChefStock;
 import personnel.Ouvrier;
+import personnel.Specialite;
 
 
 class personnelTest {
@@ -19,7 +20,7 @@ class personnelTest {
 		//La creation d'un chef de stock
 		ChefStock chefStock1 = new ChefStock("Clooney", "George");
 		//La creation d'un ouvrier qui a pour chef George clooney
-		Ouvrier ouvrier1 = new Ouvrier("Pitt","Brad",chefStock1);
+		Ouvrier ouvrier1 = new Ouvrier("Pitt","Brad",chefStock1, Specialite.CUISINE);
 		
 		//Les deux membres du personnel doivent avoir des identifiants uniques
 		assertTrue(chefStock1.getId() != ouvrier1.getId());
