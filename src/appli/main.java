@@ -17,10 +17,9 @@ public class main {
 		entrepot.ajouterRangee(rangee1);
 		entrepot.ajouterRangee(rangee2);
 		
-		//System.out.println(entrepot);
-		
+		System.out.println(entrepot);
 		System.out.println(rangee1.placeDisponible(planchesDeBoie));
-		
+		System.out.println(rangee2.placeDisponible(planchesDeBoie));
 //		entrepot.ajouterUnLot(planchesDeBoie);		
 		
 	}
