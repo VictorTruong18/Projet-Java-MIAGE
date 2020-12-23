@@ -19,7 +19,7 @@ class rangeeTest {
 		//Creation de deux rangees de volume 5
 		Rangee rangee1 = new Rangee(5);
 		Rangee rangee2 = new Rangee(5);
-		//Creation d'un lot de volume 6
+		//Creation d'un lot de volume 4
 		Lot planchesDeBoie = new Lot(1,"PlanchesDeBoie",10,145.00,4);
 		//L'Entrepot ajoute les rangees
 		entrepot.ajouterRangee(rangee1);

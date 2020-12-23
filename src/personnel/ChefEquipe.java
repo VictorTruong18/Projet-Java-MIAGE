@@ -1,6 +1,6 @@
 package personnel;
 
-public interface ChefEquipe extends Personnel{
+public interface ChefEquipe {
 	
 	
 

@@ -23,29 +23,24 @@ public class Rangee {
 	}
 
 
-	public void ajouterLot(Lot lot) {
-		List<Integer> places = placeDisponible(lot);
-		int borneSuperieure = lot.getVolume() + places.get(0) - 1;
-		for(int i = places.get(0); i < borneSuperieure; ++i)
-			espacesRangee[i] = lot;
-		
-	}
-	
-	public void retirerLot(Lot lot) {
-		for(int i = 0; i < espacesRangee.length; ++i) {
-			if(espacesRangee != null && espacesRangee[i].getIdLot() == lot.getIdLot())
-				espacesRangee[i] = null;
-		}
-	}
-	
-	public boolean estRempli() {
-		//a faire
-		return false;
-	}
+//	public void ajouterLot(Lot lot) {
+//		List<Integer> places = placeDisponible(lot);
+//		int borneSuperieure = lot.getVolume() + places.get(0) - 1;
+//		for(int i = places.get(0); i < borneSuperieure; ++i)
+//			espacesRangee[i] = lot;
+//		
+//	}
+//	
+//	public void retirerLot(Lot lot) {
+//		for(int i = 0; i < espacesRangee.length; ++i) {
+//			if(espacesRangee != null && espacesRangee[i].getIdLot() == lot.getIdLot())
+//				espacesRangee[i] = null;
+//		}
+//	}
+
 	
 	public List<Integer> placeDisponible(Lot l) {
-		if(estRempli())
-			return null;
+		
 		int place = 0;
 		List<Integer> indices = new ArrayList<>();
 		
