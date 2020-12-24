@@ -13,6 +13,10 @@ public class Ouvrier extends Personnel {
 	
 	}
 
+	public Specialite getSpecialite() {
+		return specialite;
+	}
+
 	public ChefEquipe getChefEquipe() {
 		return chefEquipe;
 	}

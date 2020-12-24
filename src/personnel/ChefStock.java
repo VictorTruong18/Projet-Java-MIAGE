@@ -1,8 +1,10 @@
 package personnel;
 
-import java.awt.List;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Stack;
+
 
 import exceptions.InvalidNbOuvrierException;
 
@@ -56,6 +58,20 @@ public class ChefStock extends Personnel implements ChefEquipe{
 			s += "id : " + o.getId() + " nom : " + o.getNom() + " prenom : " + o.getPrenom() + "\n";
 		}
 		return s;
+	}
+
+
+
+	@Override
+	public List<Integer> getIndiceOuvriers(Specialite specialite) {
+		List<Integer> indices = new ArrayList<>();
+		for(Ouvrier o : this.ouvriers) {
+			if(o.getSpecialite() == specialite) {
+				indices.add(o.getId());
+			}
+			
+		}
+		return indices;
 	}
 	
 	
