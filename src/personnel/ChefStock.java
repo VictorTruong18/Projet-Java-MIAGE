@@ -4,7 +4,10 @@ import java.awt.List;
 import java.util.LinkedList;
 import java.util.Stack;
 
+import exceptions.InvalidNbOuvrierException;
+
 public class ChefStock extends Personnel implements ChefEquipe{
+	private final int MAX_OUVRIER = 4;
 	private final int SALAIRE = 10;
 	private LinkedList<Ouvrier> ouvriers;
 	
@@ -20,8 +23,16 @@ public class ChefStock extends Personnel implements ChefEquipe{
 	
 	@Override
 	public void recruter(String nom, String prenom, Specialite specialite) {
-		Ouvrier nouvelleRecrue = new Ouvrier(nom,prenom,this,specialite);
-		ouvriers.add(nouvelleRecrue);
+		try {
+			if(this.getNbOuvriers() <= MAX_OUVRIER) {
+				Ouvrier nouvelleRecrue = new Ouvrier(nom,prenom,this,specialite);
+				ouvriers.add(nouvelleRecrue);
+			} else {
+				throw new InvalidNbOuvrierException(this, this.MAX_OUVRIER);
+			}
+		} catch (InvalidNbOuvrierException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	

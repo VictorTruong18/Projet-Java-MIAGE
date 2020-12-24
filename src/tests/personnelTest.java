@@ -61,7 +61,13 @@ class personnelTest {
 		//On verifie que lorsque l'on renvoie un ouvrier ceci est pris en compte
 		assertEquals(chefStock1.getNbOuvriers(),2);
 		
+		//le chef de brico recrute trois ouvrier en plus
+		chefBrico1.recruter("Foxx", "Jamie", Specialite.SALLE_DE_BAIN);
+		chefBrico1.recruter("Jackson", "Samuel", Specialite.SALON);
 		
+		//le dernier ne sera pas ajouter 
+		chefBrico1.recruter("Travolta", "John", Specialite.SALON);
+		assertEquals(chefBrico1.getNbOuvriers(),4);
 	}
 	
 
