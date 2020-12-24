@@ -6,19 +6,16 @@ import java.util.Stack;
 import exceptions.InvalidNbOuvrierException;
 
 public class ChefBrico extends Personnel implements ChefEquipe{
+	private static final int SALAIRE = 10;
 	private final int MAX_OUVRIER = 4;
-	private final int SALAIRE = 10;
 	private LinkedList<Ouvrier> ouvriers;
 	
 	public ChefBrico( String nom, String prenom) {
-		super(nom, prenom);
+		super(nom, prenom, SALAIRE);
 		this.ouvriers = new LinkedList<Ouvrier>();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public int getSALAIRE() {
-		return SALAIRE;
-	}
 	
 	@Override
 	public void recruter(String nom, String prenom, Specialite specialite) {

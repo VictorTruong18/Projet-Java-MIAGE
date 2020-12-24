@@ -70,5 +70,10 @@ class personnelTest {
 		assertEquals(chefBrico1.getNbOuvriers(),4);
 	}
 	
+	@Test
+	void test3() {
+		
+	}
+	
 
 }

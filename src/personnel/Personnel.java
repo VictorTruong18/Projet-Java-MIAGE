@@ -6,13 +6,15 @@ public class Personnel {
 	private int id;
 	private String nom;
 	private String prenom;
+	public final int SALAIRE;
 
 	
-	public Personnel(String nom, String prenom) {
+	public Personnel(String nom, String prenom, int SALAIRE) {
 		this.id = nbPersonnel;
 		this.nbPersonnel++;
 		this.nom = nom;
 		this.prenom = prenom;
+		this.SALAIRE = SALAIRE;
 	}
 
 
@@ -27,7 +29,10 @@ public class Personnel {
 	public String getPrenom() {
 		return prenom;
 	}
-
+	
+	public int getSALAIRE() {
+		return SALAIRE;
+	}
 
 
 
