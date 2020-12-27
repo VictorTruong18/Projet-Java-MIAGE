@@ -9,13 +9,13 @@ import org.junit.jupiter.api.Test;
 
 import appli.*;
 
-class rangeeTest {
+class entrepotTest {
 
 	@Test
 	void test1() {
 		
-		//Initialisation de l'Entrepot
-		Entrepot entrepot = new Entrepot();
+		//Initialisation de l'Entrepot avec une tresorie de 2000
+		Entrepot entrepot = new Entrepot(2000);
 		//Creation de deux rangees de volume 5
 		Rangee rangee1 = new Rangee(5);
 		Rangee rangee2 = new Rangee(5);

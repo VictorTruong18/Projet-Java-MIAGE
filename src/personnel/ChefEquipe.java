@@ -1,12 +1,75 @@
 package personnel;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
-public interface ChefEquipe {
+import exceptions.InvalidNbOuvrierException;
+
+public class ChefEquipe extends Personnel {
+	private final int MAX_OUVRIER;
+	private LinkedList<Ouvrier> ouvriers;
 	
-	public void recruter(String nom, String prenom, Specialite specialite);
-	public void renvoyer(int id);
-	public int getNbOuvriers();
-	public List<Integer> getIndiceOuvriers(Specialite specialite);
+	public ChefEquipe(String nom, String prenom, int SALAIRE, int MAX_OUVRIER) {
+		super(nom, prenom, SALAIRE);
+		this.MAX_OUVRIER = MAX_OUVRIER;
+		this.ouvriers = new LinkedList<Ouvrier>();
+		// TODO Auto-generated constructor stub
+	}
+//	public void recruter(String nom, String prenom, Specialite specialite);
+//	public void renvoyer(int id);
+//	public int getNbOuvriers();
+//	public List<Integer> getIndiceOuvriers(Specialite specialite);
+	
+	
+	public void recruter(String nom, String prenom, Specialite specialite) {
+		try {
+			if(this.getNbOuvriers() < MAX_OUVRIER) {
+				Ouvrier nouvelleRecrue = new Ouvrier(nom,prenom,this,specialite);
+				ouvriers.add(nouvelleRecrue);
+			} else {
+				throw new InvalidNbOuvrierException(this, this.MAX_OUVRIER);
+			}
+		} catch (InvalidNbOuvrierException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+
+
+	public int getNbOuvriers() {
+		return ouvriers.size();
+	}
+
+
+	public void renvoyer(int id) {
+		for(int i = 0; i < this.getNbOuvriers(); i++) {
+			if(this.ouvriers.get(i).getId() == id) {
+				ouvriers.remove(i);
+			}
+		}
+		
+	}
+	
+	public String toString() {
+		String s = "Chef de stock :  id : " + this.getId() + " nom : " + this.getNom() + " prenom : " + this.getPrenom() + "\n" ;
+		for (Ouvrier o : this.ouvriers) {
+			s += "id : " + o.getId() + " nom : " + o.getNom() + " prenom : " + o.getPrenom() + "\n";
+		}
+		return s;
+	}
+
+
+
+	public List<Integer> getIndiceOuvriers(Specialite specialite) {
+		List<Integer> indices = new ArrayList<>();
+		for(Ouvrier o : this.ouvriers) {
+			if(o.getSpecialite() == specialite) {
+				indices.add(o.getId());
+			}
+			
+		}
+		return indices;
+	}
 
 }

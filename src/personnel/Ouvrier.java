@@ -2,6 +2,7 @@ package personnel;
 
 public class Ouvrier extends Personnel {
 	
+	
 	private static final int SALAIRE = 5;
 	private ChefEquipe chefEquipe;
 	private Specialite specialite;
@@ -24,6 +25,7 @@ public class Ouvrier extends Personnel {
 	public int getSALAIRE() {
 		return SALAIRE;
 	}
+	
 	
 	
 
