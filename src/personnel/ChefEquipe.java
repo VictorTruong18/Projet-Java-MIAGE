@@ -19,8 +19,6 @@ public class ChefEquipe extends Personnel {
 		// TODO Auto-generated constructor stub
 	}
 
-	
-	
 	public void recruter(String nom, String prenom, Specialite specialite) {
 		try {
 			if(this.getNbOuvriers() < MAX_OUVRIER) {
@@ -39,8 +37,6 @@ public class ChefEquipe extends Personnel {
 	public LinkedList<Ouvrier> getOuvriers() {
 		return ouvriers;
 	}
-
-
 
 
 	public int getNbOuvriers() {

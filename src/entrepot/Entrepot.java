@@ -1,4 +1,4 @@
-package appli;
+package entrepot;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -34,6 +34,7 @@ public class Entrepot {
 	public void payerPersonnel() {
 		for(ChefEquipe c : this.chefsEquipes) {
 			this.tresorie -= c.getSALAIRE();
+			System.out.println(c.getSALAIRE());
 			for(Ouvrier o : c.getOuvriers()) {
 				this.tresorie -= o.getSALAIRE();
 			}

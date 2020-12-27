@@ -8,6 +8,9 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import appli.*;
+import entrepot.Entrepot;
+import entrepot.Lot;
+import entrepot.Rangee;
 import personnel.ChefBrico;
 import personnel.ChefStock;
 import personnel.Specialite;

@@ -1,4 +1,4 @@
-package appli;
+package entrepot;
 
 import java.util.ArrayList;
 import java.util.Arrays;

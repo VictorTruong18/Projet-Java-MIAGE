@@ -1,4 +1,4 @@
-package appli;
+package entrepot;
 
 public class Commande {
 	

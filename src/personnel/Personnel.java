@@ -6,7 +6,7 @@ public class Personnel {
 	private int id;
 	private String nom;
 	private String prenom;
-	public final int SALAIRE;
+	private final int SALAIRE;
 
 	
 	public Personnel(String nom, String prenom, int SALAIRE) {

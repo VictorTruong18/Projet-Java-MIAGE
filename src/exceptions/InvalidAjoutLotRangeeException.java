@@ -1,6 +1,6 @@
 package exceptions;
 
-import appli.Rangee;
+import entrepot.Rangee;
 import personnel.Personnel;
 
 public class InvalidAjoutLotRangeeException extends Exception{

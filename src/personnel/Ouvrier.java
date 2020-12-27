@@ -1,5 +1,8 @@
 package personnel;
 
+import entrepot.Lot;
+import entrepot.Rangee;
+
 public class Ouvrier extends Personnel {
 	
 	
@@ -11,7 +14,10 @@ public class Ouvrier extends Personnel {
 		super(nom, prenom, SALAIRE);
 		this.chefEquipe = chefEquipe;
 		this.specialite = specialite;
+	}
 	
+	public Ouvrier(String nom, String prenom, int s) {
+		super(nom,prenom,s);
 	}
 	
 
@@ -28,8 +34,15 @@ public class Ouvrier extends Personnel {
 	}
 	
 	
+	public void ajouterLot(Rangee rangee, Lot lot, int indice) {
+		rangee.ajouterLot(lot, indice);
+	}
 	
-
+	public Lot retirerLot(Rangee rangee, Lot lot) {
+		return rangee.retirerLot(lot);
+	}
+	
+	
 	
 	
 
