@@ -23,7 +23,7 @@ class entrepotTest {
 		Rangee rangee1 = new Rangee(5);
 		Rangee rangee2 = new Rangee(5);
 		//Creation d'un lot de volume 4
-		Lot planchesDeBoie = new Lot(1,"PlanchesDeBoie",10,145.00,4);
+		Lot planchesDeBoie = new Lot("PlanchesDeBoie",10,145.00,4);
 		//L'Entrepot ajoute les rangees
 		entrepot.ajouterRangee(rangee1);
 		entrepot.ajouterRangee(rangee2);
@@ -32,6 +32,12 @@ class entrepotTest {
 		placeDisponible.add(1);
 		assertEquals(rangee1.placeDisponible(planchesDeBoie),placeDisponible);	
 		assertEquals(rangee2.placeDisponible(planchesDeBoie),placeDisponible);
+		
+		rangee1.ajouterLot(planchesDeBoie, 0);
+		System.out.println(entrepot.toString());
+		rangee1.retirerLot(planchesDeBoie);
+		System.out.println(entrepot.toString());
+	
 	}
 	
 	

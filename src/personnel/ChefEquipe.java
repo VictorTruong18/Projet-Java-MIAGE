@@ -7,6 +7,8 @@ import java.util.List;
 import exceptions.InvalidNbOuvrierException;
 
 public class ChefEquipe extends Personnel {
+	
+	
 	private final int MAX_OUVRIER;
 	private LinkedList<Ouvrier> ouvriers;
 	
