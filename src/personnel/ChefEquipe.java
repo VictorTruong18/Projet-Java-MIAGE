@@ -16,10 +16,7 @@ public class ChefEquipe extends Personnel {
 		this.ouvriers = new LinkedList<Ouvrier>();
 		// TODO Auto-generated constructor stub
 	}
-//	public void recruter(String nom, String prenom, Specialite specialite);
-//	public void renvoyer(int id);
-//	public int getNbOuvriers();
-//	public List<Integer> getIndiceOuvriers(Specialite specialite);
+
 	
 	
 	public void recruter(String nom, String prenom, Specialite specialite) {
@@ -35,6 +32,13 @@ public class ChefEquipe extends Personnel {
 		}
 	}
 	
+
+
+	public LinkedList<Ouvrier> getOuvriers() {
+		return ouvriers;
+	}
+
+
 
 
 	public int getNbOuvriers() {

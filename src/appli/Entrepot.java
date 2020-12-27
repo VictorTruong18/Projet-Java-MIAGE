@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import personnel.ChefEquipe;
+import personnel.Ouvrier;
 
 public class Entrepot {
 	
@@ -31,10 +32,19 @@ public class Entrepot {
 	}
 	
 	public void payerPersonnel() {
-		
+		for(ChefEquipe c : this.chefsEquipes) {
+			this.tresorie -= c.getSALAIRE();
+			for(Ouvrier o : c.getOuvriers()) {
+				this.tresorie -= o.getSALAIRE();
+			}
+		}
 	}
 	
 	
+	public double getTresorie() {
+		return tresorie;
+	}
+
 	@Override
 	public String toString() {
 		String s = "";
