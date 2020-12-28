@@ -8,9 +8,9 @@ public class Ouvrier extends Personnel {
 	
 	private static final int SALAIRE = 5;
 	private ChefEquipe chefEquipe = null;
-	private Specialite specialite = null;
+	private PieceDelaMaison specialite = null;
 
-	public Ouvrier(String nom, String prenom,ChefEquipe chefEquipe,Specialite specialite) {
+	public Ouvrier(String nom, String prenom,ChefEquipe chefEquipe,PieceDelaMaison specialite) {
 		super(nom, prenom, SALAIRE);
 		this.chefEquipe = chefEquipe;
 		this.specialite = specialite;
@@ -21,7 +21,7 @@ public class Ouvrier extends Personnel {
 	}
 	
 
-	public Specialite getSpecialite() {
+	public PieceDelaMaison getSpecialite() {
 		return specialite;
 	}
 

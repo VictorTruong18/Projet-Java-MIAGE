@@ -13,7 +13,7 @@ import entrepot.Lot;
 import entrepot.Rangee;
 import personnel.ChefBrico;
 import personnel.ChefStock;
-import personnel.Specialite;
+import personnel.PieceDelaMaison;
 
 class entrepotTest {
 
@@ -57,12 +57,12 @@ class entrepotTest {
 		entrepot.recruterChefEquipe(chefBrico1);
 		
 		//le chef de stock recrute trois ouvriers 
-		chefStock1.recruter("Afllec", "Ben", Specialite.SALLE_A_MANGER);
-		chefStock1.recruter("Norton", "Edward", Specialite.WC);
-		chefStock1.recruter("Garfield", "Andrew", Specialite.CHAMBRE);
+		chefStock1.recruter("Afllec", "Ben", PieceDelaMaison.Salle_a_manger);
+		chefStock1.recruter("Norton", "Edward", PieceDelaMaison.Wc);
+		chefStock1.recruter("Garfield", "Andrew", PieceDelaMaison.Chambre);
 		//le chef de brico recrute deux ouvriers
-		chefBrico1.recruter("Dicaprio", "Leonardo", Specialite.SALLE_DE_BAIN);
-		chefBrico1.recruter("Waltz", "Christopher", Specialite.SALON);
+		chefBrico1.recruter("Dicaprio", "Leonardo", PieceDelaMaison.Salle_de_bain);
+		chefBrico1.recruter("Waltz", "Christopher", PieceDelaMaison.Salon);
 		
 		
 		entrepot.payerPersonnel();

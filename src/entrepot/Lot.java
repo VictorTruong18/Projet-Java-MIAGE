@@ -21,6 +21,10 @@ public class Lot {
 		this.prix = prix;
 	}
 	
+	public Lot(String nom, int volume) {
+		this.nom = nom;
+		this.volume = volume;
+	}
 	public int getVolume() {
 		return volume;
 	}

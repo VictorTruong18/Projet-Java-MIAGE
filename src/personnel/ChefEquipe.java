@@ -19,7 +19,7 @@ public class ChefEquipe extends Personnel {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void recruter(String nom, String prenom, Specialite specialite) {
+	public void recruter(String nom, String prenom, PieceDelaMaison specialite) {
 		try {
 			if(this.getNbOuvriers() < MAX_OUVRIER) {
 				Ouvrier nouvelleRecrue = new Ouvrier(nom,prenom,this,specialite);
@@ -63,7 +63,7 @@ public class ChefEquipe extends Personnel {
 
 
 
-	public List<Integer> getIndiceOuvriers(Specialite specialite) {
+	public List<Integer> getIndiceOuvriers(PieceDelaMaison specialite) {
 		List<Integer> indices = new ArrayList<>();
 		for(Ouvrier o : this.ouvriers) {
 			if(o.getSpecialite() == specialite) {

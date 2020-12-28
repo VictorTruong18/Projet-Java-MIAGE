@@ -1,34 +1,33 @@
 package entrepot;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import personnel.PieceDelaMaison;
+
 
 public class Meuble {
 	
-	private Lot[] lotsMeuble;
-	private int idMeuble, dureeConstruction;
+	private List<Lot> lotsMeuble;
+	private int dureeConstruction;
 	private String nom;
-	private PieceMaison pieceMaison;
+	private PieceDelaMaison pieceMaison;
 	private double prix;
 	
-	public Meuble(int idMeuble, int dureeConstruction, String nom, PieceMaison pieceMaison,
-			Lot lots[]) {
-		this.idMeuble = idMeuble;
+	public Meuble( String nom, 
+			PieceDelaMaison pieceMaison,
+			int dureeConstruction,
+			List<Lot> lots ) {
+		
 		this.dureeConstruction = dureeConstruction;
+		this.pieceMaison = pieceMaison;
 		this.nom = nom;
 		this.pieceMaison = pieceMaison;
-		
-		for(int i =0; i < lots.length; ++i) {
-			lotsMeuble[i] = lots[i];
-			prix += (lotsMeuble[i].getVolume() * lotsMeuble[i].getPrix()); 
-		}
+		this.lotsMeuble = lots;
 		
 	}
 
-	public double getPrix() {
-		return prix;
-	}
-	
 	
 	
 

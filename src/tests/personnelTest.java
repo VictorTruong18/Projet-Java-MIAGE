@@ -11,7 +11,7 @@ import appli.*;
 import personnel.ChefBrico;
 import personnel.ChefStock;
 import personnel.Ouvrier;
-import personnel.Specialite;
+import personnel.PieceDelaMaison;
 
 
 class personnelTest {
@@ -21,7 +21,7 @@ class personnelTest {
 		//La creation d'un chef de stock
 		ChefStock chefStock1 = new ChefStock("Clooney", "George");
 		//La creation d'un ouvrier qui a pour chef George clooney
-		Ouvrier ouvrier1 = new Ouvrier("Pitt","Brad",chefStock1, Specialite.CUISINE);
+		Ouvrier ouvrier1 = new Ouvrier("Pitt","Brad",chefStock1, PieceDelaMaison.Cuisine);
 		
 		//Les deux membres du personnel doivent avoir des identifiants uniques
 		assertTrue(chefStock1.getId() != ouvrier1.getId());
@@ -43,12 +43,12 @@ class personnelTest {
 		ChefStock chefStock1 = new ChefStock("Fincher", "David");
 		ChefBrico chefBrico1 = new ChefBrico("Tarantino", "Quentin");
 		//le chef de stock recrute trois ouvriers 
-		chefStock1.recruter("Afllec", "Ben", Specialite.SALLE_A_MANGER);
-		chefStock1.recruter("Norton", "Edward", Specialite.WC);
-		chefStock1.recruter("Garfield", "Andrew", Specialite.CHAMBRE);
+		chefStock1.recruter("Afllec", "Ben", PieceDelaMaison.Salle_a_manger);
+		chefStock1.recruter("Norton", "Edward", PieceDelaMaison.Wc);
+		chefStock1.recruter("Garfield", "Andrew", PieceDelaMaison.Chambre);
 		//le chef de brico recrute deux ouvriers
-		chefBrico1.recruter("Dicaprio", "Leonardo", Specialite.SALLE_DE_BAIN);
-		chefBrico1.recruter("Waltz", "Christopher", Specialite.SALON);
+		chefBrico1.recruter("Dicaprio", "Leonardo", PieceDelaMaison.Salle_de_bain);
+		chefBrico1.recruter("Waltz", "Christopher", PieceDelaMaison.Salon);
 		//Test : getNbOuvriers(), et recruter()
 		assertEquals(chefStock1.getNbOuvriers(),3);
 		assertEquals(chefBrico1.getNbOuvriers(),2);
@@ -56,17 +56,17 @@ class personnelTest {
 		chefStock1.renvoyer(4);
 		assertEquals(chefStock1.getNbOuvriers(),2);
 		//le chef de brico recrute trois ouvrier en plus
-		chefBrico1.recruter("Foxx", "Jamie", Specialite.SALLE_DE_BAIN);
-		chefBrico1.recruter("Jackson", "Samuel", Specialite.SALON);
+		chefBrico1.recruter("Foxx", "Jamie", PieceDelaMaison.Salle_a_manger);
+		chefBrico1.recruter("Jackson", "Samuel", PieceDelaMaison.Salon);
 		//le dernier ne sera pas ajouter 
-		chefBrico1.recruter("Travolta", "John", Specialite.SALON);
+		chefBrico1.recruter("Travolta", "John", PieceDelaMaison.Salon);
 		//Test : InvalidNbOuvrierException
 		assertEquals(chefBrico1.getNbOuvriers(),4);
 		//Test : getIndiceOuvriers()
 		List<Integer> indicesOuvriers = new ArrayList<>();
 		indicesOuvriers.add(7);
 		indicesOuvriers.add(9);
-		assertEquals(chefBrico1.getIndiceOuvriers(Specialite.SALLE_DE_BAIN), indicesOuvriers);
+		assertEquals(chefBrico1.getIndiceOuvriers(PieceDelaMaison.Salle_de_bain), indicesOuvriers);
 		
 	}
 	
