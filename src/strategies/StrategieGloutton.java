@@ -11,8 +11,8 @@ import entrepot.Entrepot;
 import personnel.Ouvrier;
 import personnel.Personnel;
 
-//Recuperer toutes les lots tant qu'il y a de la piaces
-//Ne construire que les meubles qui rapportent le plus
+//Recuperer les objets qui ont le prix le plus eleve
+//Construire des que possible 
 public class StrategieGloutton implements Strategie {
 	
 	private Entrepot entrepot;

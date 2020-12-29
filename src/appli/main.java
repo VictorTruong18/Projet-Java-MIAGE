@@ -26,7 +26,7 @@ public class main {
 		
 		/*--------------------------------INITIALISATION FILE READER ------------------------------------------------- */
 		
-		File file1 = new File("/Users/victortruong/Desktop/PROJET_JAVA/Projet-Java-MIAGE/fichiersTxt/file1.txt");
+		File file1 = new File("/Users/victortruong/Desktop/PROJET_JAVA/Projet-Java-MIAGE/textFiles/textFile1.txt");
 		Scanner scan = new Scanner(file1);
 		
 		
@@ -38,8 +38,10 @@ public class main {
 		//Ajout des rangees
 		Rangee rangee1 = new Rangee(5);
 		Rangee rangee2 = new Rangee(5);
+		Rangee rangee3 = new Rangee(5);
 		entrepot.ajouterRangee(rangee1);
 		entrepot.ajouterRangee(rangee2);
+		entrepot.ajouterRangee(rangee3);
 		//Ajout des chefs Equipes
 		ChefStock chefStock1 = new ChefStock("Fincher", "David");
 		ChefBrico chefBrico1 = new ChefBrico("Tarantino", "Quentin");
@@ -65,7 +67,7 @@ public class main {
 		
 		while(scan.hasNextLine()){
 			
-			System.out.println("Pas de Temps : " + pasTemps + "-----------------------------------");
+			System.out.println("Pas de Temps : " + pasTemps + " -------------------------------------------------");
 			pasTemps++;
 		
 			String consigne = scan.nextLine();
@@ -85,7 +87,7 @@ public class main {
 				Lot lot = new Lot(params[2],
 						Double.parseDouble(params[3]), 
 						Double.parseDouble(params[4]) ,
-						Integer.parseInt(params[0]));
+						Integer.parseInt(params[5]));
 				ReceptionLot receptionLot = new ReceptionLot(Integer.parseInt(params[0]),lot);
 				StrategieGloutton.decisionConsigne(receptionLot);
 				entrepot.payerPersonnel();
@@ -122,7 +124,7 @@ public class main {
 				;			
 			} 
 			else {
-				System.out.println("Une des consignes n'a pas ete reconnonu parmi celles existantes : rien - lot - meuble");
+				System.out.println("Une des consignes n'a pas ete reconnu parmi celles existantes : rien - lot - meuble");
 			}
 			
 		}

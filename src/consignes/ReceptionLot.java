@@ -19,7 +19,7 @@ public class ReceptionLot extends Consigne {
 	public String toString() {
 		String s = "";
 		s += "Consigne : Reception d'un lot  \n" + "Lot : " + this.lot.getNom() + " poids : " + 
-		this.lot.getPoids() + " prix : " + this.lot.getPrix() + " volume :" + this.lot.getVolume();
+		this.lot.getPoids() + " prix : " + this.lot.getPrix() + " volume : " + this.lot.getVolume();
 		return s;
 	}
 

@@ -14,6 +14,7 @@ public class Rien extends Consigne {
 	public String toString() {
 		String s = "";
 		s += "Consigne : Rien ";
+		
 		return s;
 	}
 

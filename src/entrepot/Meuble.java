@@ -26,6 +26,12 @@ public class Meuble {
 		this.pieceMaison = pieceMaison;
 		this.lotsMeuble = lots;
 		
+		double prix = 0;
+		for(Lot l : lotsMeuble) {
+			prix += l.getPrix();
+			
+		}
+		this.prix = prix;
 	}
 
 	

@@ -71,10 +71,6 @@ public class Entrepot {
 			if(!r.placeDisponible(lot).isEmpty()) {
 				return r;
 			}
-			else {
-				
-				return null;
-			}
 		}
 		return null;
 	}
@@ -90,6 +86,11 @@ public class Entrepot {
 		for(Rangee r : rangees)
 			s += r.toString() + "\n";
 		s += "Tresorie : " + this.tresorie + "\n";
+		s += "Nombre de chefs d'Equipe : " + this.chefsEquipes.size() + "\n";
+		int nbOuvriers = 0;
+		for(ChefEquipe c : this.chefsEquipes)
+			nbOuvriers += c.getNbOuvriers();
+		s += "Nombre d'ouvriers : " + nbOuvriers + "\n";
 		return s;
 	}
 	
