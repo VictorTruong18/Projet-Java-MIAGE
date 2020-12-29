@@ -29,6 +29,14 @@ public class Lot {
 		return volume;
 	}
 
+	public double getPoids() {
+		return poids;
+	}
+
+	public void setPoids(double poids) {
+		this.poids = poids;
+	}
+
 	public String getNom() {
 		return nom;
 	}

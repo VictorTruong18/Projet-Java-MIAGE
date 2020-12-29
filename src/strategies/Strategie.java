@@ -4,5 +4,5 @@ import consignes.Consigne;
 
 public interface Strategie {
 	
-	public void executerConsigne(Consigne consigne);
+	public void decisionConsigne(Consigne consigne);
 }

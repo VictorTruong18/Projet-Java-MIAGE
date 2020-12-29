@@ -66,7 +66,7 @@ class personnelTest {
 		List<Integer> indicesOuvriers = new ArrayList<>();
 		indicesOuvriers.add(7);
 		indicesOuvriers.add(9);
-		assertEquals(chefBrico1.getIndiceOuvriers(PieceDelaMaison.Salle_de_bain), indicesOuvriers);
+		assertEquals(chefBrico1.getIndiceOuvriersSpiecialite(PieceDelaMaison.Salle_de_bain), indicesOuvriers);
 		
 	}
 	

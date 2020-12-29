@@ -2,7 +2,9 @@ package consignes;
 
 import java.util.List;
 
+import entrepot.Entrepot;
 import personnel.Ouvrier;
+import personnel.Personnel;
 import personnel.Personnel;
 
 public abstract class Consigne {
@@ -32,6 +34,17 @@ public abstract class Consigne {
 		this.remplis = remplis;
 	}
 	
-	public abstract void executionConsigne(Ouvrier o);
+	public String toString()
+	{	
+		String s = "";
+		if(this.accepte == false) {
+			s += "Ceci represente la consigne numero " + this.id + " et n'a toujours pas ete accepte";
+		} else {
+			s += "Ceci represente la consigne numero " + this.id + " et a ete accepte";
+		}
+		return s;
+	}
+	public abstract void executionConsigne(Ouvrier o, Entrepot e);
+	
 	
 }

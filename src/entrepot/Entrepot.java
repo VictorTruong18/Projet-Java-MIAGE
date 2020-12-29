@@ -6,6 +6,7 @@ import java.util.List;
 
 import personnel.ChefEquipe;
 import personnel.Ouvrier;
+import personnel.Personnel;
 
 public class Entrepot {
 	
@@ -34,11 +35,48 @@ public class Entrepot {
 	public void payerPersonnel() {
 		for(ChefEquipe c : this.chefsEquipes) {
 			this.tresorie -= c.getSALAIRE();
-			System.out.println(c.getSALAIRE());
 			for(Ouvrier o : c.getOuvriers()) {
 				this.tresorie -= o.getSALAIRE();
 			}
 		}
+	}
+	
+	public List<Integer> getIndiceOuvrierLibre(){
+		List<Integer> indices = new ArrayList<>();
+		for(ChefEquipe c : chefsEquipes) {
+			if(!c.isOccupe()) {
+				indices.add(c.getId());
+			}
+			indices.addAll(c.getIndiceOuvriersLibre());
+		}
+		return indices;	
+	}
+	
+	public Ouvrier getOuvrier(int id) {
+		for(ChefEquipe c : chefsEquipes) {
+			if(c.getId() == id) {
+				return c;
+			}
+			for(Ouvrier o : c.getOuvriers()) {
+				if(o.getId() == id) {
+					return o;
+				}
+			}
+		}
+		return null;
+	}
+	
+	public Rangee getRangeeLibre(Lot lot) {
+		for(Rangee r : this.rangees) {
+			if(!r.placeDisponible(lot).isEmpty()) {
+				return r;
+			}
+			else {
+				
+				return null;
+			}
+		}
+		return null;
 	}
 	
 	
@@ -48,11 +86,14 @@ public class Entrepot {
 
 	@Override
 	public String toString() {
-		String s = "";
+		String s = "\n Entrepot : \n";
 		for(Rangee r : rangees)
 			s += r.toString() + "\n";
+		s += "Tresorie : " + this.tresorie + "\n";
 		return s;
 	}
+	
+	
 	
 
 }

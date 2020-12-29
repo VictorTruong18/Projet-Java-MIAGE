@@ -6,14 +6,15 @@ import java.util.List;
 
 import exceptions.InvalidNbOuvrierException;
 
-public class ChefEquipe extends Personnel {
+public class ChefEquipe extends Ouvrier {
 	
-	
+	private final int SALAIRE;
 	private final int MAX_OUVRIER;
 	private LinkedList<Ouvrier> ouvriers;
 	
 	public ChefEquipe(String nom, String prenom, int SALAIRE, int MAX_OUVRIER) {
 		super(nom, prenom, SALAIRE);
+		this.SALAIRE = SALAIRE;
 		this.MAX_OUVRIER = MAX_OUVRIER;
 		this.ouvriers = new LinkedList<Ouvrier>();
 		// TODO Auto-generated constructor stub
@@ -63,7 +64,7 @@ public class ChefEquipe extends Personnel {
 
 
 
-	public List<Integer> getIndiceOuvriers(PieceDelaMaison specialite) {
+	public List<Integer> getIndiceOuvriersSpiecialite(PieceDelaMaison specialite) {
 		List<Integer> indices = new ArrayList<>();
 		for(Ouvrier o : this.ouvriers) {
 			if(o.getSpecialite() == specialite) {
@@ -73,5 +74,22 @@ public class ChefEquipe extends Personnel {
 		}
 		return indices;
 	}
+	
+	public List<Integer> getIndiceOuvriersLibre() {
+		List<Integer> indices = new ArrayList<>();
+		for(Ouvrier o : this.ouvriers) {
+			if(!o.isOccupe()) {
+				indices.add(o.getId());
+			}
+			
+		}
+		return indices;
+	}
+	
+	@Override
+	public int getSALAIRE() {
+		return SALAIRE;
+	}
+
 
 }

@@ -7,6 +7,7 @@ public class Personnel {
 	private String nom;
 	private String prenom;
 	private final int SALAIRE;
+	private boolean occupe;
 
 	
 	public Personnel(String nom, String prenom, int SALAIRE) {
@@ -15,6 +16,7 @@ public class Personnel {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.SALAIRE = SALAIRE;
+		this.occupe = false;
 	}
 
 
@@ -32,6 +34,10 @@ public class Personnel {
 	
 	public int getSALAIRE() {
 		return SALAIRE;
+	}
+	
+	public boolean isOccupe() {
+		return occupe;
 	}
 
 
