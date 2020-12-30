@@ -34,6 +34,26 @@ public class Meuble {
 		this.prix = prix;
 	}
 
+	public List<Lot> getLotsMeuble() {
+		return lotsMeuble;
+	}
+
+	public int getDureeConstruction() {
+		return dureeConstruction;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public PieceDelaMaison getPieceMaison() {
+		return pieceMaison;
+	}
+
+	public double getPrix() {
+		return prix;
+	}
+
 	
 	
 

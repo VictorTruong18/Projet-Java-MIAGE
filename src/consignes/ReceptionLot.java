@@ -16,6 +16,7 @@ public class ReceptionLot extends Consigne {
 		this.lot = lot;
 	}
 	
+	@Override
 	public String toString() {
 		String s = "";
 		s += "Consigne : Reception d'un lot  \n" + "Lot : " + this.lot.getNom() + " poids : " + 
@@ -36,6 +37,7 @@ public class ReceptionLot extends Consigne {
 			placeDisponible = rangeeLibre.placeDisponible(this.lot);
 			int indiceEmplacement = placeDisponible.get(0);
 			o.ajouterLot(rangeeLibre, this.lot, indiceEmplacement);
+			e.ajouterLot(this.lot);
 			System.out.println("Le lot a ete ajoute");
 			
 		}

@@ -16,7 +16,7 @@ import entrepot.Rangee;
 import personnel.ChefBrico;
 import personnel.ChefStock;
 import personnel.PieceDelaMaison;
-import strategies.StrategieGloutton;
+import strategies.StrategieAucuneSupervision;
 
 public class main {
 
@@ -36,9 +36,10 @@ public class main {
 		
 		Entrepot entrepot = new Entrepot(2000);
 		//Ajout des rangees
-		Rangee rangee1 = new Rangee(5);
-		Rangee rangee2 = new Rangee(5);
-		Rangee rangee3 = new Rangee(5);
+		final int volumeMax = 6;
+		Rangee rangee1 = new Rangee(volumeMax);
+		Rangee rangee2 = new Rangee(volumeMax);
+		Rangee rangee3 = new Rangee(volumeMax);
 		entrepot.ajouterRangee(rangee1);
 		entrepot.ajouterRangee(rangee2);
 		entrepot.ajouterRangee(rangee3);
@@ -52,7 +53,7 @@ public class main {
 		
 		/*--------------------------------INITIALIALISATION STRATEGIE ------------------------------------------------- */
 		
-		StrategieGloutton StrategieGloutton = new StrategieGloutton(entrepot);
+		StrategieAucuneSupervision StrategieGloutton = new StrategieAucuneSupervision(entrepot);
 		
 		
 		
@@ -121,6 +122,7 @@ public class main {
 				StrategieGloutton.decisionConsigne(commande);
 				
 				entrepot.payerPersonnel();
+				System.out.println(entrepot.toString());
 				;			
 			} 
 			else {

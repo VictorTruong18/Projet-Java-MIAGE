@@ -27,6 +27,19 @@ public class Rangee {
 		espacesRangee = new Lot[longueur];
 	}
 
+	public boolean contienLot(String nom) {
+		for(int i = 0 ; i <  longueur; i++) {
+			
+			if(espacesRangee[i] != null) {
+				if(espacesRangee[i].getNom().equals(nom)){
+					
+					return true;
+				}
+			}
+		
+		}
+		return false;
+	}
 
 	public void ajouterLot(Lot lot, int indice) {	
 		try {
@@ -56,7 +69,21 @@ public class Rangee {
 		return null;
 	}
 
+	public void retirerLot(String nom, int volume) {
+		for(int i = 0; i < this.espacesRangee.length; i++) {
+			if(espacesRangee[i] != null) {
+				System.out.println(espacesRangee[i].getNom());
+				if(this.espacesRangee[i].getNom() == nom ) {
+					for(int j = 0; j < volume; j++) {
+						
+						this.espacesRangee[j] = null;
+					}
 
+				}
+			}
+			
+		}
+	}
 
 	
 	public int getId() {

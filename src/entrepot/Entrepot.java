@@ -9,14 +9,16 @@ import personnel.Ouvrier;
 import personnel.Personnel;
 
 public class Entrepot {
-	
+	private List<Lot> lots;
 	private List<Rangee> rangees;
 	private List<ChefEquipe> chefsEquipes; 
-	private List<Commande> commandes;
+	private List<Meuble> commandes;
 	private double tresorie;
 	
 	
+	
 	public Entrepot(double tresorie) {
+		this.lots = new ArrayList<>();
 		this.rangees = new ArrayList<>();
 		this.chefsEquipes = new LinkedList<>();
 		this.commandes = new LinkedList<>();
@@ -27,6 +29,60 @@ public class Entrepot {
 		this.rangees.add(rangee);
 	}
 	
+	public void ajouterCommande(Meuble meuble) {
+		this.commandes.add(meuble);
+	}
+	
+	public void ajouterLot(Lot l) {
+		this.lots.add(l);
+	}
+	
+	public void retirerLot(String nom, int volume) {
+		boolean isRetire = false;
+		for(Rangee rangee : this.rangees) {
+			if(!isRetire && rangee.contienLot(nom)) {
+				rangee.retirerLot(nom, volume);
+				isRetire = true;
+			}
+		}
+	}
+	
+	public boolean peutConstruire() {
+		if(!this.commandes.isEmpty()) {
+			for(Meuble meuble : this.commandes) {
+				int nombreDeLot = meuble.getLotsMeuble().size();
+				int countLot = 0;
+				for(Lot lotMeuble : meuble.getLotsMeuble()) {
+					
+					for(Lot lotEntrepot : this.lots) {
+						if(lotMeuble.getNom().equals(lotEntrepot.getNom())) {
+							countLot++;
+						} if(nombreDeLot == countLot) {		
+							return true;
+						} 
+					}
+				}
+			}
+		}
+		return false;
+	}
+	
+	public boolean peutConstruire(Meuble meuble) {
+		int nombreDeLot = meuble.getLotsMeuble().size();
+		int countLot = 0;
+		for(Lot lotMeuble : meuble.getLotsMeuble()) {
+			
+			for(Lot lotEntrepot : this.lots) {
+				if(lotMeuble.getNom().equals(lotEntrepot.getNom())) {
+					countLot++;
+				} if(nombreDeLot == countLot) {		
+					return true;
+				} 
+			}
+		}
+		return false;
+		
+	}
 	
 	public void recruterChefEquipe(ChefEquipe chefEquipe) {
 		this.chefsEquipes.add(chefEquipe);	
