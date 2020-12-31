@@ -9,6 +9,10 @@ import personnel.Personnel;
 public class ReceptionCommande extends Consigne {
 	private Meuble meuble;
 
+	/**
+	 * @param id
+	 * @param meuble
+	 */
 	public ReceptionCommande(int id, Meuble meuble) {
 		super(id);
 		this.meuble = meuble;
@@ -26,10 +30,18 @@ public class ReceptionCommande extends Consigne {
 		return s;
 	}
 
+	/**
+	 * @param o : ouvrier exécutant la consigne
+	 * @param e : l'entrepot ou est exécuté la consigne
+	 * 
+	 */
 	@Override
 	public void executionConsigne(Ouvrier o, Entrepot e) {
+		//Ajoute une commande avec le meuble dans l'entrepot
 		e.ajouterCommande(meuble);
+		//Si les conditions nécessaires pour construire le meuble :
 		if(e.peutConstruire(meuble)) {
+			//on retire les lots associés au meuble
 			for(Lot lots : meuble.getLotsMeuble()) {
 				e.retirerLot(lots.getNom(),lots.getVolume());
 			}

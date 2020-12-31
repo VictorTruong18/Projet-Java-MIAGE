@@ -10,6 +10,11 @@ public class Personnel {
 	private boolean occupe;
 
 	
+	/**
+	 * @param nom
+	 * @param prenom
+	 * @param SALAIRE
+	 */
 	public Personnel(String nom, String prenom, int SALAIRE) {
 		this.id = nbPersonnel;
 		this.nbPersonnel++;
@@ -20,22 +25,37 @@ public class Personnel {
 	}
 
 
+	/**
+	 * @return
+	 */
 	public int getId() {
 		return id;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getNom() {
 		return nom;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getPrenom() {
 		return prenom;
 	}
 	
+	/**
+	 * @return
+	 */
 	public int getSALAIRE() {
 		return SALAIRE;
 	}
 	
+	/**
+	 * @return
+	 */
 	public boolean isOccupe() {
 		return occupe;
 	}

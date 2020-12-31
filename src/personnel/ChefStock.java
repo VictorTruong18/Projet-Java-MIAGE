@@ -14,9 +14,13 @@ public class ChefStock extends ChefEquipe{
 	
 
 	
+	/**
+	 * @param nom
+	 * @param prenom
+	 */
 	public ChefStock( String nom, String prenom) {
 		super(nom, prenom, SALAIRE, MAX_OUVRIER);
-		//d
+		//
 		// TODO Auto-generated constructor stub
 	}
 

@@ -13,6 +13,10 @@ public class ChefBrico extends ChefEquipe{
 	
 	
 	
+	/**
+	 * @param nom : nom du chef
+	 * @param prenom : prenom du chef
+	 */
 	public ChefBrico( String nom, String prenom) {
 		super(nom, prenom, SALAIRE, MAX_OUVRIER);
 		
