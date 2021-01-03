@@ -18,7 +18,7 @@ public class Entrepot {
 	
 	
 	/**
-	 * @param tresorie : la trésorie de l'entrepot
+	 * @param tresorie : la trï¿½sorie de l'entrepot
 	 */
 	public Entrepot(double tresorie) {
 		this.lots = new ArrayList<>();
@@ -29,7 +29,7 @@ public class Entrepot {
 	}
 	
 	/**
-	 * @param rangee : la rangée
+	 * @param rangee : la rangï¿½e
 	 */
 	public void ajouterRangee(Rangee rangee) {
 		this.rangees.add(rangee);
@@ -37,7 +37,7 @@ public class Entrepot {
 	
 	/**
 	 * @param meuble : le meuble
-	 * ajoute une commande du meuble donné à l'entrepot
+	 * ajoute une commande du meuble donnï¿½ ï¿½ l'entrepot
 	 */
 	public void ajouterCommande(Meuble meuble) {
 		this.commandes.add(meuble);
@@ -55,68 +55,47 @@ public class Entrepot {
 	 * @param volume : le volume du lot
 	 */
 	public void retirerLot(String nom, int volume) {
-		boolean isRetire = false;
-		for(Rangee rangee : this.rangees) {
-			//Parcours les rangées et vérifie si un lot est disponible pour
-			//etre utilisé
-			if(!isRetire && rangee.contienLot(nom)) {
-				rangee.retirerLot(nom, volume);
-				isRetire = true;
+		boolean actionRemplie = false;
+		for(Rangee r : this.rangees) {
+			if(actionRemplie == true) {
+				
+			} else {
+				
+				actionRemplie = r.retirerLotNom(nom, volume);
 			}
+			
+			
 		}
+		
 	}
 	
 	/**
 	 * @return la construction du meuble est possible
-	 * vérifie si la construciton du meuble est bien réalisable
+	 * vï¿½rifie si la construciton du meuble est bien rï¿½alisable
 	 */
-	public boolean peutConstruire() {
-		if(!this.commandes.isEmpty()) {
-			for(Meuble meuble : this.commandes) {
-				int nombreDeLot = meuble.getLotsMeuble().size();
-				int countLot = 0;
-				for(Lot lotMeuble : meuble.getLotsMeuble()) {
-					
-					for(Lot lotEntrepot : this.lots) {
-						//Vérifie pour chaque lot si il est contenu dans l'entrepot
-						if(lotMeuble.getNom().equals(lotEntrepot.getNom())) {
-							//On augmente le nb de lot contenu
-							countLot++;
-						} if(nombreDeLot == countLot) {		
-							//Si tous les lots sont la, le compte est bon !
-							return true;
-						} 
-					}
-				}
-			}
-		}
-		return false;
-	}
-	
+//	public boolean peutConstruire() {
+//		
+//	
+//	}
+//	
 	/**
 	 * @param meuble : le meuble
-	 * @return la possibilité de la construction
+	 * @return la possibilitï¿½ de la construction
 	 */
-	public boolean peutConstruire(Meuble meuble) {
-		int nombreDeLot = meuble.getLotsMeuble().size();
-		int countLot = 0;
-		//Les lots nécessaires pour la construction du meuble
-		for(Lot lotMeuble : meuble.getLotsMeuble()) {
-			
-			//Les lots de l'entrepot
-			for(Lot lotEntrepot : this.lots) {
-				//Vérifie pour chaque lot si il est contenu dans l'entrepot
-				if(lotMeuble.getNom().equals(lotEntrepot.getNom())) {
-					//On augmente le nb de lot contenu
-					countLot++;
-					//Si tous les lots sont la, le compte est bon !
-				} if(nombreDeLot == countLot) {		
-					return true;
-				} 
-			}
-		}
-		return false;
+	public boolean peutConstruire(Meuble meuble) {	
 		
+		List<String> nomMeubles = new ArrayList<>();
+		for(Lot l : meuble.getLotsMeuble()) {
+			nomMeubles.add(l.getNom());
+		}
+		
+		List<String> nomLots = new ArrayList<>();
+		for(Lot l : this.lots) {
+			nomLots.add(l.getNom());
+		}
+	
+		return nomLots.containsAll(nomMeubles);
+
 	}
 	
 	/**
@@ -131,10 +110,10 @@ public class Entrepot {
 	 */
 	public void payerPersonnel() {
 		for(ChefEquipe c : this.chefsEquipes) {
-			//Enleve le salaire de la trésorie
+			//Enleve le salaire de la trï¿½sorie
 			this.tresorie -= c.getSALAIRE();
 			for(Ouvrier o : c.getOuvriers()) {
-				//Déduit le salaire des ouvriers de la trésorie
+				//Dï¿½duit le salaire des ouvriers de la trï¿½sorie
 				this.tresorie -= o.getSALAIRE();
 			}
 		}
@@ -147,12 +126,12 @@ public class Entrepot {
 		List<Integer> indices = new ArrayList<>();
 		
 		for(ChefEquipe c : chefsEquipes) {
-			//Vérifie si un chef est dispo
+			//Vï¿½rifie si un chef est dispo
 			if(!c.isOccupe()) {
 				
 				indices.add(c.getId());
 			}
-			//Ajoute tous les ouvriers libres parmi l'équipe du chef en question
+			//Ajoute tous les ouvriers libres parmi l'ï¿½quipe du chef en question
 			indices.addAll(c.getIndiceOuvriersLibre());
 		}
 		return indices;	
@@ -160,7 +139,7 @@ public class Entrepot {
 	
 	/**
 	 * @param id
-	 * @return l'ouvrier recherché
+	 * @return l'ouvrier recherchï¿½
 	 */
 	public Ouvrier getOuvrier(int id) {
 		for(ChefEquipe c : chefsEquipes) {
@@ -180,7 +159,7 @@ public class Entrepot {
 	
 	/**
 	 * @param lot
-	 * @return la première rangée disponible pour accueillir le lot
+	 * @return la premiï¿½re rangï¿½e disponible pour accueillir le lot
 	 */
 	public Rangee getRangeeLibre(Lot lot) {
 		for(Rangee r : this.rangees) {

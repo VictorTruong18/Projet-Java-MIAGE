@@ -23,7 +23,7 @@ public class ReceptionCommande extends Consigne {
 	public String toString() {
 		String s = "";
 		s += "Consigne : Reception d'une commande  \n" + "Commande : " + this.meuble.getNom() + " piece de la Maison : " + 
-		this.meuble.getPieceMaison() + " prix : " + this.meuble.getPrix() + " \nLots requis :\n" ;
+		this.meuble.getPieceMaison() + " \nLots requis :\n" ;
 		for(Lot lot : this.meuble.getLotsMeuble()) {
 			s += "Nom : " +  lot.getNom() + " Volume : " + lot.getVolume() + "\n";
 		}
@@ -31,24 +31,25 @@ public class ReceptionCommande extends Consigne {
 	}
 
 	/**
-	 * @param o : ouvrier exécutant la consigne
-	 * @param e : l'entrepot ou est exécuté la consigne
+	 * @param o : ouvrier exï¿½cutant la consigne
+	 * @param e : l'entrepot ou est exï¿½cutï¿½ la consigne
 	 * 
 	 */
 	@Override
 	public void executionConsigne(Ouvrier o, Entrepot e) {
 		//Ajoute une commande avec le meuble dans l'entrepot
 		e.ajouterCommande(meuble);
-		//Si les conditions nécessaires pour construire le meuble :
+		//Si les conditions nï¿½cessaires pour construire le meuble :
 		if(e.peutConstruire(meuble)) {
-			//on retire les lots associés au meuble
+			//on retire les lots associï¿½s au meuble
 			for(Lot lots : meuble.getLotsMeuble()) {
 				e.retirerLot(lots.getNom(),lots.getVolume());
 			}
+			
 		} 
 		
 		
-	}
+	}	
 
 
 

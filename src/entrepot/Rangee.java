@@ -17,7 +17,7 @@ public class Rangee {
 	private int id;
 	private int longueur;
 	private final int LARGEUR = 1, HAUTEUR = 1;
-	
+	private List<Lot> lots;
 	private Lot[] espacesRangee;
 	
 	/**
@@ -28,44 +28,28 @@ public class Rangee {
 		this.nbRangee++;
 		this.longueur = longueur;
 		espacesRangee = new Lot[longueur];
+		lots = new ArrayList<>();
 	}
 
-	/**
-	 * @param nom
-	 * @return si le lot est dans la rangée
-	 */
-	public boolean contienLot(String nom) {
-		for(int i = 0 ; i <  longueur; i++) {
-			
-			//Si la case n'est pas vide
-			if(espacesRangee[i] != null) {
-				//On vérifie que le lot correspond au type de lot recherché
-				if(espacesRangee[i].getNom().equals(nom)){
-					
-					return true;
-				}
-			}
-		
-		}
-		return false;
-	}
+
 
 	/**
-	 * @param lot : le lot à ajouter
-	 * @param indice : indice dans la rangée
+	 * @param lot : le lot ï¿½ ajouter
+	 * @param indice : indice dans la rangï¿½e
 	 */
 	public void ajouterLot(Lot lot, int indice) {	
 		try {
 			List<Integer> places = placeDisponible(lot);
-			//Si l'indice donné est bien disponible
+			//Si l'indice donnï¿½ est bien disponible
 			if(places.contains(indice)) {
-				//Borne supérieure de la place
+				lots.add(lot);
+				//Borne supï¿½rieure de la place
 				int borneSuperieure = lot.getVolume() + places.get(0) - 1;
 				for(int i = indice; i <= borneSuperieure; ++i)
-					//On référence l'objet dans chaque case de l'intervalle de la place
+					//On rï¿½fï¿½rence l'objet dans chaque case de l'intervalle de la place
 					espacesRangee[i] = lot;
 			} else {
-				//Si l'indice donné n'est pas valide, on renvoie une exception
+				//Si l'indice donnï¿½ n'est pas valide, on renvoie une exception
 				throw new InvalidAjoutLotRangeeException(this,indice);
 			}
 		} catch (InvalidAjoutLotRangeeException e) {
@@ -74,17 +58,32 @@ public class Rangee {
 	}
 	
 	
+	public Lot getLot(String nomLot, int volume) {
+		
+		for(Lot l : this.lots) {
+		
+			String lotNom = l.getNom();
+			int lotVolume = l.getVolume();
+	
+			if(lotNom.equals(nomLot)  && lotVolume == volume ) {
+				return l;
+			}
+		};
+		return null;
+	}
+	
+	
 	/**
-	 * @param lot : le lot à retirer
-	 * @return le lot retiré
+	 * @param lot : le lot ï¿½ retirer
+	 * @return le lot retirï¿½
 	 */
 	public Lot retirerLot(Lot lot) {
+		
 		for(int i = 0; i < this.espacesRangee.length; i++) {
-			//Le lot à retirer est trouvé
-			if(this.espacesRangee[i].getIdLot() == lot.getIdLot()) {
-				
+			//Le lot ï¿½ retirer est trouvï¿½
+			if(this.espacesRangee[i].getIdLot() == lot.getIdLot()) {		
 				for(int j = 0; j < lot.getVolume(); j++) {
-					//Pour chaque case ou le lot est contenu, on déréference le lot
+					//Pour chaque case ou le lot est contenu, on dï¿½rï¿½ference le lot
 					this.espacesRangee[j] = null;
 				}
 				return lot;
@@ -92,29 +91,23 @@ public class Rangee {
 		}
 		return null;
 	}
-
+	
 	/**
-	 * @param nom
-	 * @param volume
+	 * @param lot : le lot ï¿½ retirer
+	 * @return le lot retirï¿½
 	 */
-	public void retirerLot(String nom, int volume) {
-		for(int i = 0; i < this.espacesRangee.length; i++) {
-			//Si la case esgt vide
-			if(espacesRangee[i] != null) {
-				
-				System.out.println(espacesRangee[i].getNom());
-				//Si le nom correspond au nom du lot à retirer
-				if(this.espacesRangee[i].getNom() == nom ) {
-					for(int j = 0; j < volume; j++) {
-						//On vide toutes les cases occupées par ce lot (déréférencement de l'objet)
-						this.espacesRangee[j] = null;
-					}
-
-				}
-			}
-			
+	public boolean retirerLotNom(String nomLot, int volume) {
+		Lot lotARetire = this.getLot(nomLot, volume);
+		if(lotARetire == null) {
+			return false;
+		} else {
+			this.retirerLot(lotARetire);
+			return true;
 		}
 	}
+
+
+
 
 	
 	/**
@@ -126,7 +119,7 @@ public class Rangee {
 
 
 	/**
-	 * @param l : le lot utilisé pour vérifier son bon rangement
+	 * @param l : le lot utilisï¿½ pour vï¿½rifier son bon rangement
 	 * @return la liste de place dispo pour ajouter le lot
 	 */
 	public List<Integer> placeDisponible(Lot l) {
@@ -141,11 +134,11 @@ public class Rangee {
 				place++;
 				//Si le nombre de case dispo correspond au volume
 				if(place >= l.getVolume()) {
-					//On ajoute l'indice de départ de l'espace associé
+					//On ajoute l'indice de dï¿½part de l'espace associï¿½
 					indices.add(i - (l.getVolume() - 1));
 				}
 			}
-			//Si la case est occupée, on remet à 0 la taille de l'espace
+			//Si la case est occupï¿½e, on remet ï¿½ 0 la taille de l'espace
 			else
 				place = 0;
 		}

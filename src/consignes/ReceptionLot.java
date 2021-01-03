@@ -34,21 +34,21 @@ public class ReceptionLot extends Consigne {
 
 
 	/**
-	 * @param o : ouvrier exécutant la consigne
-	 * @param e : l'entrepot ou est exécuté la consigne
+	 * @param o : ouvrier exï¿½cutant la consigne
+	 * @param e : l'entrepot ou est exï¿½cutï¿½ la consigne
 	 */
 	@Override
 	public void executionConsigne(Ouvrier o, Entrepot e) {
 		
-		//Cherche une rangée disponible pour ranger le lot
+		//Cherche une rangï¿½e disponible pour ranger le lot
 		Rangee rangeeLibre = e.getRangeeLibre(this.lot);
 		if(rangeeLibre == null) {
 			System.out.println("Toutes les rangees sont occupees");
 		} else {
 			List<Integer> placeDisponible;
-			//Trouve une place dispo dans cette rangée
+			//Trouve une place dispo dans cette rangï¿½e
 			placeDisponible = rangeeLibre.placeDisponible(this.lot);
-			//Selectionne la première place dispo
+			//Selectionne la premiï¿½re place dispo
 			int indiceEmplacement = placeDisponible.get(0);
 			o.ajouterLot(rangeeLibre, this.lot, indiceEmplacement);
 			e.ajouterLot(this.lot);
